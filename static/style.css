@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+h1{
+    
+    font-size: 1rem;
+    text-align: center;
+
+}
+h2{
+    font-size: 0.7rem;
+    text-align: center;
+}
+.container{
+    width:700px;
+    background-color: rgb(185, 201, 192);
+    margin: 20px auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+}
+#txt{
+    width:400px;
+    height: 40px;
+}
+#btn,.again{
+    height: 30px;
+}
+#txt2{
+    width:200px;
+    height: 40px;
+}
+#btn2{
+    height: 30px;
+}
+
+.guess-box{
+    width:300px;
+    height:300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.right-guess{
+    background-color: rgb(19, 128, 56);
+}
+.low-guess{
+    background-color: rgb(62, 93, 216);
+}
+.high-guess{
+    background-color: rgb(234, 110, 110);
+}
+.right-guess p,.low-guess p,.high-guess p{
+    font-size: 14px;
+    text-align: center;
+}
+/* .hidden{
+    display: none;
+} */

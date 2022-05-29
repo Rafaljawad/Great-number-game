@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+.container{
+    width:700px;
+    padding:100px;
+    background-color: rgb(214, 198, 177);
+    margin:40px auto;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    justify-content: center;
+    align-items: center;
+    animation-name: ptag;
+    animation-duration: 4s;
+}
+@keyframes ptag {
+    0%   {background-color:rgb(151, 185, 135); left:0px; top:0px;}
+    25%  {background-color:rgb(197, 197, 112); left:200px; top:0px;}
+    50%  {background-color:rgb(145, 217, 191); left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:rgb(83, 171, 65); left:0px; top:0px;}
+}
+p{
+    font-size: 24px;
+}

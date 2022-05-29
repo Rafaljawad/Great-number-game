@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Guess my number</title>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Condiment&family=Kings&family=Montserrat:wght@100;400;500&family=Press+Start+2P&family=Quintessential&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the great number game!</h1>
+        <h2>I am thinking of a number between 1-5</h2>
+        <p>Take a guess!</p>
+
+
+        <!-- NINJA BONUS: Let the user know how many attempts they took before guessing the correct number -->
+        <p class="number-of-clicks">
+            {{session['counter']}} attempt(s)
+        </p>
+
+        <!-- SENSEI BONUS: Only allow the user to guess up to 5 times. If they don't guess it on their 5th attempt, display a "You Lose" message and allow them to try again. -->
+        {% if session['counter']>5 %}
+        <p>You lost the game, try again</p>
+        <a href="/again"><button type="button" class="again">Play again</button></a>
+        {% endif %}
+
+        <!-- NINJA BONUS: Display the results as shown in the wireframe above (i.e. with appropriate colors and positioning) -->
+        {% if session['number']!=0 %}
+            {% if session['random']==session['number'] %}
+                <div class="guess-box right-guess ">
+                    <p>You guessed it 👏the number was:{{session['random']}}</p>
+                    <a href="/again"><button type="button" class="again">Play again</button></a>
+                    <!-- SENSEI BONUS: If they win, allow the user to submit their name. Have a link to a leaderboard page that shows winners' names and how many attempts they took to guess correctly. -->
+                    <form action="/congrats" method="post">
+                        <input type="text" name="name" placeholder="enter your name" id="txt2">
+                        <button type="submit" id="btn2">Submit</button>
+                    </form>
+                    
+                </div>
+            {% elif session['random'] > session['number'] %}
+                <div class="guess-box low-guess ">
+                    <p>Too low, try again </p>
+                </div>
+            {% else %}
+                <div class="guess-box high-guess ">
+                    <p>Too high, try again </p>
+                </div>
+            {% endif %}
+        {% endif %}
+
+
+        <!-- refrence made 2 tags to see how number and random work -->
+        <!-- <h4>number:{{session['number']}}</h4>
+        <h4>random num:{{session['random']}}</h4> -->
+
+
+        <form action="/guess" method="post">
+            <input type="text" name="number" id="txt">
+            <button type="submit" id="btn">Submit</button>
+        </form>
+        
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</body>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Condiment&family=Kings&family=Montserrat:wght@100;400;500&family=Press+Start+2P&family=Quintessential&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <p>Congrats {{session['name']}}!</p>
+        <p>After {{session['counter'] }} attempt(s), you won the game!</p>
+        <a href="/back">main</a>
+    </div>
+
+</body>
+</html>
